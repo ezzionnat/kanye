@@ -14,7 +14,7 @@ getgenv().Settings = {
                 [80] = (0.128)
             })
         }),
-        ["Aim Part"] = ({"HumanoidRootPart", "Head", "LeftHand", "RightHand", "LeftLowerArm", "RightLowerArm", "LeftUpperArm", "RightUpperArm", "LeftFoot", "LeftLowerLeg", "UpperTorso", "LeftUpperLeg", "RightFoot", "RightLowerLeg", "LowerTorso", "RightUpperLeg"}), --// https://create.roblox.com/docs/reference/engine/enums/BodyPartR15
+        ["Aim Part"] = ({"HumanoidRootPart"}), --// https://create.roblox.com/docs/reference/engine/enums/BodyPartR15
         ["Closest Body Part"] = (false), --// please note that it will only apply on the bodyparts you have selected in the aim part table
         ["Multi Point"] = (false), --// basically closest point^
         ["Silent Aim"] = {
