@@ -79,8 +79,8 @@ getgenv().Settings = {
             ["Smoothing"] = ({
                 ["Enabled"] = (false),
                 ["Amount"] = (1),
-                ["Easing Style"] = (Enum.EasingStyle.Linear), --// https://create.roblox.com/docs/reference/engine/enums/EasingStyle
-                ["Easing Direction"] = (Enum.EasingDirection.In) --// https://create.roblox.com/docs/en-us/reference/engine/enums/EasingDirection
+                ["Easing Style"] = (Enum.EasingStyle.Linear), --// Linear, Sine, Back, Quad, Quar, Quint Bounce, Elastic, Expotential, Circular, Cubic
+                ["Easing Direction"] = (Enum.EasingDirection.In) --// In, Out, InOut
             }),
         },
         ["Checks"] = ({
