@@ -79,7 +79,7 @@ getgenv().Settings = {
             ["Smoothing"] = ({
                 ["Enabled"] = (false),
                 ["Amount"] = (1),
-                ["Easing Style"] = (Enum.EasingStyle.Linear), --// Linear, Sine, Back, Quad, Quar, Quint Bounce, Elastic, Expotential, Circular, Cubic
+                ["Easing Style"] = (Enum.EasingStyle.Linear), --// Linear, Sine, Back, Quad, Quar, Quint, Bounce, Elastic, Expotential, Circular, Cubic
                 ["Easing Direction"] = (Enum.EasingDirection.In) --// In, Out, InOut
             }),
         },
