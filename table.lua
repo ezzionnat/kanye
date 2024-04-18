@@ -1,10 +1,13 @@
 getgenv().Settings = {
-    ["Luarmor Key"] = ("REPLACE WITH YOUR KEY"), --// REPLACE THIS WITH YOUR LUARMOR KEY
+    ["Luarmor Key"] = ("YOUR LUARMOR KEY HERE"),
     ["Combat"] = {
         ["Enabled"] = (true),
+        ["Aim Part"] = ("HumanoidRootPart"), --// https://create.roblox.com/docs/reference/engine/enums/BodyPartR15
+        ["Closest Body Part"] = (false),
+        ["Multi Point"] = (false), --// basically closest point
         ["Prediction"] = (0.123),
         ["Auto Prediction"] = ({
-            ["Enabled"] = (true),
+            ["Enabled"] = (false),
             ["Predictions"] = ({
                 [30] = (0.11),
                 [40] = (0.1256),
@@ -14,19 +17,25 @@ getgenv().Settings = {
                 [80] = (0.128)
             })
         }),
-        ["Aim Part"] = ({"HumanoidRootPart"}), --// https://create.roblox.com/docs/reference/engine/enums/BodyPartR15
-        ["Closest Body Part"] = (false), --// please note that it will only apply on the bodyparts you have selected in the aim part table
-        ["Multi Point"] = (false), --// basically closest point^
+        ["Toggle Keybind"] = ({ --// will fully untoggle the silent aim and camlock once pressed and reenable once pressed again
+            ["Enabled"] = (true),
+            ["Keybind"] = ("V")
+        }),
         ["Silent Aim"] = {
             ["Enabled"] = (true),
             ["Anti Aim Viewer"] = (true),
             ["Sticky Aim"] = ({
-                ["Enabled"] = (false),
-                ["Keybind"] = (Enum.KeyCode.Q)
+                ["Enabled"] = (true),
+                ["Keybind"] = ("Q")
             }),
             ["Anti Curve"] = ({
                 ["Enabled"] = (false),
-                ["Max Curve"] = (0.01) --// has to be a small number from 0 to 1
+                ["Max Curve"] = (10) --// a value from 10 to 100
+            }),
+            ["Tracer"] = ({
+                ["Enabled"] = (true),
+                ["Color"] = (Color3.new(1, 1, 1)),
+                ["Transparency"] = (1)
             }),
             ["Hit Chance"] = ({
                 ["Enabled"] = (false),
@@ -51,9 +60,10 @@ getgenv().Settings = {
         },
         ["Assist"] = {
             ["Enabled"] = (true),
-            ["Keybind"] = (Enum.KeyCode.Q),
+            ["Keybind"] = ("Q"),
+            ["Target Mode"] = ("Custom"), --// Custom, Silent
             ["Stutter"] = {
-                ["Enabled"] = (true),
+                ["Enabled"] = (false),
                 ["Delay"] = (0.1) --// seconds
             },
             ["Shake"] = ({
@@ -66,7 +76,7 @@ getgenv().Settings = {
             }),
             ["Mouse Tp"] = ({
                 ["Enabled"] = (true),
-                ["Keybind"] = (Enum.KeyCode.E),
+                ["Keybind"] = ("E"),
                 ["Shake"] = ({
                     ["Enabled"] = (true),
                     ["Amount"] = ({
@@ -77,19 +87,26 @@ getgenv().Settings = {
                 })
             }),
             ["Smoothing"] = ({
-                ["Enabled"] = (false),
-                ["Amount"] = (1),
-                ["Easing Style"] = (Enum.EasingStyle.Linear), --// Linear, Sine, Back, Quad, Quar, Quint, Bounce, Elastic, Expotential, Circular, Cubic
-                ["Easing Direction"] = (Enum.EasingDirection.In) --// In, Out, InOut
+                ["Enabled"] = (true),
+                ["Amount"] = (0.4),
+                ["Easing Style"] = ("Linear"), --// Linear, Sine, Back, Quad, Quar, Quint, Bounce, Elastic, Exponential, Circular, Cubic
+                ["Easing Direction"] = ("In") --// In, Out, InOut
             }),
         },
         ["Checks"] = ({
             ["Enabled"] = (true),
-            ["Values"] = ({"Knocked", "Wall"}) --// Vehicle, Knocked, Grabbed, Wall, Friend
+            ["Values"] = ({
+                ["Knocked"] = (true),
+                ["Vehicle"] = (true),
+                ["Grabbed"] = (true),
+                ["Wall"] = (false),
+                ["Friend"] = (false)
+            })
         }),
         ["Anti Ground Shots"] = ({
-            ["Enabled"] = (false),
-            ["To Take Off"] = (0.4)
+            ["Enabled"] = (true),
+            ["To Take Off"] = (0.4),
+            ["Minimum Y Velocity"] = (30)
         }),
         ["Resolver"] = ({
             ["Enabled"] = (false),
@@ -100,7 +117,7 @@ getgenv().Settings = {
             ["Radius"] = (200),
             ["Specific Guns"] = ({
                 ["Enabled"] = (false),
-                ["Guns"] = ({
+                ["Guns"] = ({ --// please note that rev isnt the only gun :sob:
                     ["[Revolver]"] = (150)
                 })
             }),
@@ -113,17 +130,40 @@ getgenv().Settings = {
         })
     },
     ["Misc"] = {
+        ["Chat Cmds"] = (true),
         ["Visualize Settings"] = ({
             ["Enabled"] = (true),
-            ["Color"] = (Color3.new(1, 1, 1)),
             ["Outline"] = (true),
+            ["Color"] = (Color3.new(1, 1, 1)),
             ["Position"] = ({
-                ["Horizontal"] = ("Mouse"), --// Left, Right, Middle, Mouse
-                ["Vertical"] = ("Mouse") --// Bottom, Top, Middle, Mouse
+                ["Horizontal"] = ("Left"), --// Left, Right, Middle, Mouse
+                ["Vertical"] = ("Middle"), --// Bottom, Top, Middle, Mouse
+                ["Custom Offset"] = ({
+                    ["Enabled"] = (true),
+                    ["Horizontal"] = (0),
+                    ["Vertical"] = (-170)
+                })
             })
+        }),
+        ["Hide Visuals"] = ({
+            ["Enabled"] = (true),
+            ["Keybind"] = ("C")
+        }),
+        ["Animations"] = ({
+            ["Enabled"] = (true),
+            ["Greet"] = ({
+                ["Enabled"] = (true),
+                ["Keybind"] = ("V")
+            }),
+            ["Lay"] = ({
+                ["Enabled"] = (true),
+                ["Keybind"] = ("B")
+            })
+        }),
+        ["Macro"] = ({
+            ["Enabled"] = (false),
+            ["Keybind"] = ("B")
         })
     }
 }
-
-script_key = Settings["Luarmor Key"];
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/a92943dcb338df913c732a68fe271043.lua"))();
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/39e15ff3d7c0cd0e12225b2f5e8fa38f.lua"))()
