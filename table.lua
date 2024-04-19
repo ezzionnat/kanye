@@ -166,4 +166,6 @@ getgenv().Settings = {
         })
     }
 }
+
+script_key = Settings["Luarmor Key"]
 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/04890a10f86d47297e7ff63248ec41e7.lua"))()
