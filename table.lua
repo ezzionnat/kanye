@@ -18,14 +18,15 @@ getgenv().Settings = {
             })
         }),
         ["Toggle Keybind"] = ({ --// will fully untoggle the silent aim and camlock once pressed and reenable once pressed again
-            ["Enabled"] = (true),
+            ["Enabled"] = (false),
             ["Keybind"] = ("V")
         }),
         ["Silent Aim"] = {
             ["Enabled"] = (true),
-            ["Anti Aim Viewer"] = (true),
+            ["Anti Aim Viewer"] = (false),
             ["Sticky Aim"] = ({
-                ["Enabled"] = (true),
+                ["Enabled"] = (false),
+                ["Auto Switch"] = (true), --// when the keybind for sticky aim is pressed again and the closest player was found it wont untoggle but switch to the new player
                 ["Keybind"] = ("Q")
             }),
             ["Anti Curve"] = ({
@@ -52,16 +53,16 @@ getgenv().Settings = {
                     ["Specific Guns"] = ({
                         ["Enabled"] = (true),
                         ["Guns"] = ({
-                            ["[Revolver]"] = (40)
+                            ["[Revolver]"] = (40),
+                            ["[P90]"] = (40),
                         })
                     })
                 })
             }),
         },
         ["Assist"] = {
-            ["Enabled"] = (true),
+            ["Enabled"] = (false),
             ["Keybind"] = ("Q"),
-            ["Target Mode"] = ("Custom"), --// Custom, Silent
             ["Stutter"] = {
                 ["Enabled"] = (false),
                 ["Delay"] = (0.1) --// seconds
@@ -150,7 +151,7 @@ getgenv().Settings = {
             ["Keybind"] = ("C")
         }),
         ["Animations"] = ({
-            ["Enabled"] = (true),
+            ["Enabled"] = (false),
             ["Greet"] = ({
                 ["Enabled"] = (true),
                 ["Keybind"] = ("V")
@@ -163,6 +164,55 @@ getgenv().Settings = {
         ["Macro"] = ({
             ["Enabled"] = (false),
             ["Keybind"] = ("B")
+        }),
+        ["Close Game"] = ({
+            ["Enabled"] = (false),
+            ["Keybind"] = ("G"),
+            ["Delay"] = ({
+                ["Enabled"] = (true),
+                ["Amount"] = (2)
+            }),
+        }),
+        ["Memory Spoofer"] = ({
+            ["Enabled"] = (false),
+            ["Minimum"] = (1400),
+            ["Maximum"] = (1600)
+        }),
+        ["Fake Spike"] = ({
+            ["Enabled"] = (false),
+            ["Keybind"] = ("N"),
+            ["Duration"] = (5)
+        }),
+        ["Anti Lock"] = ({ --[[ !! THIS WILL MAKE YOU LOOK BLATANT WITH A HIGH VELOCITY !! ]]--
+            ["Enabled"] = (false),
+            ["Keybind"] = ("N"),
+            ["Custom Velocity"] = ({
+                ["X"] = (0),
+                ["Y"] = (100),
+                ["Z"] = (0)
+            })
+        }),
+        ["Auto Reload"] = ({
+            ["Enabled"] = (true),
+            ["Delay"] = ({
+                ["Enabled"] = (false),
+                ["Amount"] = (2)
+            })
+        }),
+        ["Auto Buy"] = ({
+            ["Enabled"] = (true), --// just hold lmb
+            ["Delay"] = ({
+                ["Enabled"] = (false),
+                ["Amount"] = (0.2)
+            })
+        }),
+        ["Reset"] = ({
+            ["Enabled"] = (true),
+            ["Keybind"] = ("C"),
+            ["Delay"] = ({
+                ["Enabled"] = (true),
+                ["Amount"] = (2)
+            })
         })
     }
 }
